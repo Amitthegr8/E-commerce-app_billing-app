@@ -1,0 +1,12 @@
+target
+build
+*.log
+*.tmp
+.idea
+.vscode
+node_modules
+**/node_modules
+.DS_Store
+.git
+.gitignore
+.env

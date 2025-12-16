@@ -1,0 +1,76 @@
+# version: '3.8'
+
+services:
+  # MySQL Database
+  mysql-db:
+    image: mysql:8.0
+    container_name: billing-mysql
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: rootpassword
+      MYSQL_DATABASE: billing_db
+      MYSQL_USER: billing_user
+      MYSQL_PASSWORD: billing_password
+    ports:
+      # - "3306:3306"
+      - "3307:3306"  # Change from 3306:3306 to 3307:3306
+    volumes:
+      - mysql-data:/var/lib/mysql
+      - ./database/init.sql:/docker-entrypoint-initdb.d/init.sql  # Optional for initial data
+    networks:
+      - billing-network
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      timeout: 20s
+      retries: 10
+
+  # Spring Boot Backend
+  backend:
+    build: ./backend
+    container_name: billing-backend
+    restart: always
+    depends_on:
+      mysql-db:
+        condition: service_healthy
+    ports:
+      - "8080:8080"
+    environment:
+      SPRING_PROFILES_ACTIVE: docker
+      DB_HOST: mysql-db
+      DB_PORT: 3306
+    volumes:
+      - ./backend/uploads:/app/uploads  # For file uploads
+      - ./backend/logs:/app/logs        # For logs
+    networks:
+      - billing-network
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8080/actuator/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+
+  # React Frontend
+  frontend:
+    build: ./frontend
+    container_name: billing-frontend
+    restart: always
+    depends_on:
+      - backend
+    ports:
+      - "3000:80"  # Nginx runs on 80, we expose as 3000
+    environment:
+      - VITE_API_BASE_URL=http://localhost:8080/api/v1.0
+    volumes:
+      - ./frontend/src:/app/src  # Hot reload in development
+    networks:
+      - billing-network
+
+# Docker Networks
+networks:
+  billing-network:
+    driver: bridge
+
+# Docker Volumes
+volumes:
+  mysql-data:
+    driver: local
