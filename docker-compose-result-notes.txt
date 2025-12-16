@@ -1,0 +1,119 @@
+amit_pandey@AmitPandey-ThinkBook-16-G7-ARP:/media/amit_pandey/D Drive/Programs/Billing-software-docker$ docker compose build
+WARN[0000] /media/amit_pandey/D Drive/Programs/Billing-software-docker/docker-compose.yml: the attribute `version` is obsolete, it will be ignored, please remove it to avoid potential confusion 
+[+] Building 113.1s (33/33) FINISHED                                                                                                                      
+ => [internal] load local bake definitions                                                                                                           0.0s
+ => => reading from stdin 1.16kB                                                                                                                     0.0s
+ => [frontend internal] load build definition from Dockerfile                                                                                        0.0s
+ => => transferring dockerfile: 555B                                                                                                                 0.0s
+ => [backend internal] load build definition from Dockerfile                                                                                         0.0s
+ => => transferring dockerfile: 682B                                                                                                                 0.0s
+ => [backend internal] load metadata for docker.io/library/eclipse-temurin:21-jre-alpine                                                             3.5s
+ => [backend internal] load metadata for docker.io/library/maven:3.9-eclipse-temurin-21                                                              3.5s
+ => [frontend internal] load metadata for docker.io/library/nginx:alpine                                                                             3.5s
+ => [frontend internal] load metadata for docker.io/library/node:18-alpine                                                                           3.5s
+ => [frontend internal] load .dockerignore                                                                                                           0.1s
+ => => transferring context: 2B                                                                                                                      0.0s
+ => [backend internal] load .dockerignore                                                                                                            0.1s
+ => => transferring context: 2B                                                                                                                      0.0s
+ => [frontend stage-1 1/2] FROM docker.io/library/nginx:alpine@sha256:052b75ab72f690f33debaa51c7e08d9b969a0447a133eb2b99cc905d9188cb2b               9.4s
+ => => resolve docker.io/library/nginx:alpine@sha256:052b75ab72f690f33debaa51c7e08d9b969a0447a133eb2b99cc905d9188cb2b                                0.1s
+ => => sha256:136bc6976c2023e3363e66b88167d08019fece3e756c162c58754e3819bf4063 17.26MB / 17.26MB                                                     2.3s
+ => => sha256:fc13532503d72b70e7dd276ae52f2743b14326b83c31935c86d7477c66019dea 1.40kB / 1.40kB                                                       0.9s
+ => => sha256:ad5b65da02cfbd43daa87443b87051f3816a10eb7719938d8cb9a96ee828d471 1.21kB / 1.21kB                                                       0.7s
+ => => sha256:51c30493937c33bd8b568d8aed09d9596f558d08877b05a5e1855516aba05e1f 403B / 403B                                                           0.8s
+ => => sha256:abdece946203a31d986f184559f417a33c3a8936a80153b2f0ffa208af4a0d48 954B / 954B                                                           0.7s
+ => => sha256:5d2cc344426d3d91200b457a771ecfe976de824e165506f5cce5d6b863da1ca9 629B / 629B                                                           0.6s
+ => => sha256:dfad290a5c259f8d1ec1938529f8ef602e335a26680497ad56d38e0727e1a10a 1.86MB / 1.86MB                                                       1.3s
+ => => sha256:014e56e613968f73cce0858124ca5fbc601d7888099969a4eea69f31dcd71a53 3.86MB / 3.86MB                                                       1.5s
+ => => extracting sha256:014e56e613968f73cce0858124ca5fbc601d7888099969a4eea69f31dcd71a53                                                            0.1s
+ => => extracting sha256:dfad290a5c259f8d1ec1938529f8ef602e335a26680497ad56d38e0727e1a10a                                                            0.1s
+ => => extracting sha256:5d2cc344426d3d91200b457a771ecfe976de824e165506f5cce5d6b863da1ca9                                                            0.0s
+ => => extracting sha256:abdece946203a31d986f184559f417a33c3a8936a80153b2f0ffa208af4a0d48                                                            0.0s
+ => => extracting sha256:51c30493937c33bd8b568d8aed09d9596f558d08877b05a5e1855516aba05e1f                                                            0.0s
+ => => extracting sha256:ad5b65da02cfbd43daa87443b87051f3816a10eb7719938d8cb9a96ee828d471                                                            0.0s
+ => => extracting sha256:fc13532503d72b70e7dd276ae52f2743b14326b83c31935c86d7477c66019dea                                                            0.0s
+ => => extracting sha256:136bc6976c2023e3363e66b88167d08019fece3e756c162c58754e3819bf4063                                                            0.4s
+ => [frontend internal] load build context                                                                                                           6.5s
+ => => transferring context: 94.67MB                                                                                                                 6.3s
+ => [frontend build 1/6] FROM docker.io/library/node:18-alpine@sha256:8d6421d663b4c28fd3ebc498332f249011d118945588d0a35cb9bc4b8ca09d9e               5.6s
+ => => resolve docker.io/library/node:18-alpine@sha256:8d6421d663b4c28fd3ebc498332f249011d118945588d0a35cb9bc4b8ca09d9e                              0.1s
+ => => sha256:25ff2da83641908f65c3a74d80409d6b1b62ccfaab220b9ea70b80df5a2e0549 446B / 446B                                                           0.6s
+ => => sha256:1e5a4c89cee5c0826c540ab06d4b6b491c96eda01837f430bd47f0d26702d6e3 1.26MB / 1.26MB                                                       1.0s
+ => => sha256:f18232174bc91741fdf3da96d85011092101a032a93a388b79e99e69c2d5c870 3.64MB / 3.64MB                                                       1.4s
+ => => sha256:dd71dde834b5c203d162902e6b8994cb2309ae049a0eabc4efea161b2b5a3d0e 40.01MB / 40.01MB                                                     3.7s
+ => => extracting sha256:f18232174bc91741fdf3da96d85011092101a032a93a388b79e99e69c2d5c870                                                            0.1s
+ => => extracting sha256:dd71dde834b5c203d162902e6b8994cb2309ae049a0eabc4efea161b2b5a3d0e                                                            1.0s
+ => => extracting sha256:1e5a4c89cee5c0826c540ab06d4b6b491c96eda01837f430bd47f0d26702d6e3                                                            0.0s
+ => => extracting sha256:25ff2da83641908f65c3a74d80409d6b1b62ccfaab220b9ea70b80df5a2e0549                                                            0.1s
+ => [backend stage-1 1/4] FROM docker.io/library/eclipse-temurin:21-jre-alpine@sha256:326837fba06a8ff5482a17bafbd65319e64a6e997febb7c85ebe7e3f73c12  9.9s
+ => => resolve docker.io/library/eclipse-temurin:21-jre-alpine@sha256:326837fba06a8ff5482a17bafbd65319e64a6e997febb7c85ebe7e3f73c12b11               0.1s
+ => => sha256:23d1cf1d02f064d13d647e4816e26b17678a634769ec583b4eb29d5a68d415f7 2.28kB / 2.28kB                                                       0.8s
+ => => sha256:15a75c308165465141d861c1b7f7ec799b18fc84d5d8b87396dc29c3aa4894ff 128B / 128B                                                           0.8s
+ => => sha256:3a857bcc1a1505748a54fef25bb81f303468a26d3de127b6b0044b1ffde6275a 53.17MB / 53.17MB                                                     7.0s
+ => => sha256:93902f35c01693819c190c354786cbb573f4ef49a5b865d6c34f2197839cc3e4 16.29MB / 16.29MB                                                     3.5s
+ => => sha256:2d35ebdb57d9971fea0cac1582aa78935adf8058b2cc32db163c98822e5dfa1b 3.80MB / 3.80MB                                                       2.5s
+ => => extracting sha256:2d35ebdb57d9971fea0cac1582aa78935adf8058b2cc32db163c98822e5dfa1b                                                            0.1s
+ => => extracting sha256:93902f35c01693819c190c354786cbb573f4ef49a5b865d6c34f2197839cc3e4                                                            0.4s
+ => => extracting sha256:3a857bcc1a1505748a54fef25bb81f303468a26d3de127b6b0044b1ffde6275a                                                            0.8s
+ => => extracting sha256:15a75c308165465141d861c1b7f7ec799b18fc84d5d8b87396dc29c3aa4894ff                                                            0.0s
+ => => extracting sha256:23d1cf1d02f064d13d647e4816e26b17678a634769ec583b4eb29d5a68d415f7                                                            0.0s
+ => [backend build 1/6] FROM docker.io/library/maven:3.9-eclipse-temurin-21@sha256:6fdc855a6ed81d288ca7ca37ac6ff5e9308b612485c0801d70b25a858c83d23  26.0s
+ => => resolve docker.io/library/maven:3.9-eclipse-temurin-21@sha256:6fdc855a6ed81d288ca7ca37ac6ff5e9308b612485c0801d70b25a858c83d237                0.1s
+ => => sha256:583816d0be0cf3bcb3dfd452a52a7616ed7d9f22fe7f9c7be06c6d39baf0dd92 155B / 155B                                                           0.7s
+ => => sha256:4f4fb700ef54461cfa02571ae0db9a0dc1e0cdb5577484a6d75e68dc38e8acc1 32B / 32B                                                             0.7s
+ => => sha256:8167b4f972e8721f72bf03a1fdc669b803dfc262b27a60d62ee7486548e1c565 853B / 853B                                                           1.2s
+ => => sha256:8583823b44413993005cb4de17065cb25a621db74ca76da9e356a8cbe97a6ff9 9.24MB / 9.24MB                                                       3.2s
+ => => sha256:8349365ad94cf3ebc9ff663af386f8e662102fd7528d7d5638df47ab9d044df7 22.54MB / 22.54MB                                                     2.9s
+ => => sha256:919c22d58535d0a293684e9385c199a76f0a3c4cdfdb02257191974dc2dabfa1 2.28kB / 2.28kB                                                       0.7s
+ => => sha256:54b92ed1102d0a97c89567511b8a3e40e6283e43958991cc108b411f7eec78e4 158B / 158B                                                           0.8s
+ => => sha256:388658fb69f54e5682104e6b0cf9b8753587e33278a43c2254254fb595999c52 157.84MB / 157.84MB                                                  14.0s
+ => => sha256:20043066d3d5c78b45520c5707319835ac7d1f3d7f0dded0138ea0897d6a3188 29.72MB / 29.72MB                                                     5.4s
+ => => sha256:b7f312f519fbac7fa8ab5e034ea3afc3f2f0e15c1b4f93c20f0ef6bdf5e3ba72 22.96MB / 22.96MB                                                     5.0s
+ => => extracting sha256:20043066d3d5c78b45520c5707319835ac7d1f3d7f0dded0138ea0897d6a3188                                                            0.9s
+ => => extracting sha256:b7f312f519fbac7fa8ab5e034ea3afc3f2f0e15c1b4f93c20f0ef6bdf5e3ba72                                                            0.6s
+ => => extracting sha256:388658fb69f54e5682104e6b0cf9b8753587e33278a43c2254254fb595999c52                                                            1.2s
+ => => extracting sha256:54b92ed1102d0a97c89567511b8a3e40e6283e43958991cc108b411f7eec78e4                                                            0.0s
+ => => extracting sha256:919c22d58535d0a293684e9385c199a76f0a3c4cdfdb02257191974dc2dabfa1                                                            0.0s
+ => => extracting sha256:8349365ad94cf3ebc9ff663af386f8e662102fd7528d7d5638df47ab9d044df7                                                            0.7s
+ => => extracting sha256:8583823b44413993005cb4de17065cb25a621db74ca76da9e356a8cbe97a6ff9                                                            0.1s
+ => => extracting sha256:8167b4f972e8721f72bf03a1fdc669b803dfc262b27a60d62ee7486548e1c565                                                            0.0s
+ => => extracting sha256:4f4fb700ef54461cfa02571ae0db9a0dc1e0cdb5577484a6d75e68dc38e8acc1                                                            0.0s
+ => => extracting sha256:583816d0be0cf3bcb3dfd452a52a7616ed7d9f22fe7f9c7be06c6d39baf0dd92                                                            0.0s
+ => [backend internal] load build context                                                                                                            0.8s
+ => => transferring context: 79.92kB                                                                                                                 0.5s
+ => [frontend build 2/6] WORKDIR /app                                                                                                                0.1s
+ => [frontend build 3/6] COPY package*.json ./                                                                                                       0.2s
+ => [frontend build 4/6] RUN npm ci --silent                                                                                                         6.1s
+ => [backend stage-1 2/4] WORKDIR /app                                                                                                               0.1s
+ => [frontend build 5/6] COPY . .                                                                                                                    3.3s
+ => [frontend build 6/6] RUN npm run build                                                                                                           4.2s
+ => [frontend stage-1 2/2] COPY --from=build /app/dist /usr/share/nginx/html                                                                         0.1s
+ => [frontend] exporting to image                                                                                                                    0.5s
+ => => exporting layers                                                                                                                              0.3s
+ => => exporting manifest sha256:2b78cfb8673663cf5fc11f5c73f02a571f39632d928bcfad33758e3334b47568                                                    0.0s
+ => => exporting config sha256:8d06e0446cfff446f8d4e48b96aec7c066fe31239fd82559f8503793d4ddd172                                                      0.0s
+ => => exporting attestation manifest sha256:90e77921a4629dba8fcc2f4786ed1494931bc8dca6f3e703300fd8f22fe3cc6d                                        0.1s
+ => => exporting manifest list sha256:f761b40d3b131185d2ef4fcd17efa10dcf18d2dad402e125e7c9f03895ab7937                                               0.0s
+ => => naming to docker.io/library/billing-software-docker-frontend:latest                                                                           0.0s
+ => => unpacking to docker.io/library/billing-software-docker-frontend:latest                                                                        0.1s
+ => [frontend] resolving provenance for metadata file                                                                                                0.0s
+ => [backend build 2/6] WORKDIR /app                                                                                                                 0.1s
+ => [backend build 3/6] COPY pom.xml .                                                                                                               0.1s
+ => [backend build 4/6] RUN mvn dependency:go-offline                                                                                               58.4s
+ => [backend build 5/6] COPY src ./src                                                                                                               0.3s
+ => [backend build 6/6] RUN mvn clean package -DskipTests                                                                                           17.8s
+ => [backend stage-1 3/4] COPY --from=build /app/target/*.jar app.jar                                                                                0.3s
+ => [backend stage-1 4/4] RUN addgroup -S spring && adduser -S spring -G spring                                                                      0.4s
+ => [backend] exporting to image                                                                                                                     4.5s
+ => => exporting layers                                                                                                                              3.7s
+ => => exporting manifest sha256:f57db3170d007d9bbfe3122d9faec799460e8bd6115fd71f7a0dc83408d3f3a4                                                    0.0s
+ => => exporting config sha256:891dfa4b2abe96cf994b4abb3ef72e6f0832643f2482a5e5628aad5c472861d4                                                      0.0s
+ => => exporting attestation manifest sha256:16516dedbb2008741224e7083d016fcef854448b2d3444bc293bc01ec2f19aaa                                        0.1s
+ => => exporting manifest list sha256:a04f3f830d4560664617bf0295d6a2eba6af415fd5ee8edd9f4db7c72c5bf481                                               0.0s
+ => => naming to docker.io/library/billing-software-docker-backend:latest                                                                            0.0s
+ => => unpacking to docker.io/library/billing-software-docker-backend:latest                                                                         0.5s
+ => [backend] resolving provenance for metadata file                                                                                                 0.0s
+[+] build 2/2
+ ✔ Image billing-software-docker-backend  Built                                                                                                    113.2s 
+ ✔ Image billing-software-docker-frontend Built                                                                                                    113.2s 
+amit_pandey@AmitPandey-ThinkBook-16-G7-ARP:/media/amit_pandey/D Drive/Programs/Billing-software-docker$ 

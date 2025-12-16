@@ -1,0 +1,38 @@
+billing-software/
+├── backend/                 # Spring Boot
+│   ├── src/
+│   ├── pom.xml
+│   ├── Dockerfile          # We'll create
+│   └── application-docker.properties
+├── frontend/               # React
+│   ├── src/
+│   ├── package.json
+│   ├── vite.config.js
+│   └── Dockerfile          # We'll create
+└── docker-compose.yml      # We'll create (ROOT FOLDER)
+
+
+┌─────────────────────────────────────────────────┐
+│            DOCKER COMPOSE SETUP                 │
+│  ┌─────────────┐  ┌─────────────┐  ┌─────────┐  │
+│  │   React     │  │ Spring Boot │  │ MySQL   │  │
+│  │  (Port 3000)│  │ (Port 8080) │  │ (Port 3306)│
+│  └─────────────┘  └─────────────┘  └─────────┘  │
+└─────────────────────────────────────────────────┘
+
+------------------------- MYSQL ---------------------------
+
+docker compose exec mysql-db mysql -u root -prootpassword billing_db
+
+
+docker compose exec mysql-db bash
+mysql -u root -prootpassword
+show databases;
+use billing_db;
+
+mysql> INSERT INTO tbl_users(name, email, password, role, created_at, updated_at, user_id)   VALUES(   'Amit Pandey',   'amitpandeyacp@gmail.com',   '$2a$10$e2d3QSzRULEhbXl7yfXeXu8ldrjxQJ7pv/8XeeyN8wedCeMH9H9ti',   'ROLE_ADMIN',   current_timestamp(),   current_timestamp(),   uuid()   );
+Query OK, 1 row affected (0.03 sec)
+
+-----------------------------------------------------
+
+tree -L 2
