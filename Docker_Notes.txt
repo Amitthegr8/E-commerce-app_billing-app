@@ -1,0 +1,33 @@
+amit_pandey@AmitPandey-ThinkBook-16-G7-ARP:/media/amit_pandey/D Drive/Programs/Billing-software-docker$ docker images
+                                                                                                                                                   i Info →   U  In Use
+IMAGE                                     ID             DISK USAGE   CONTENT SIZE   EXTRA
+billing-software-docker-backend:latest    b508e7d65855        420MB          138MB        
+billing-software-docker-frontend:latest   aa082b12c7c3       87.5MB         25.9MB        
+hello-world:latest                        d4aaab6242e0       25.9kB         9.52kB        
+mysql:8.0                                 0275a35e79c6       1.08GB          247MB        
+
+amit_pandey@AmitPandey-ThinkBook-16-G7-ARP:/media/amit_pandey/D Drive/Programs/Billing-software-docker$ 
+amit_pandey@AmitPandey-ThinkBook-16-G7-ARP:/media/amit_pandey/D Drive/Programs/Billing-software-docker$ docker save b508e7d65855 -o backend.tar
+
+
+$ docker save b508e7d65855 -o backend.tar 
+
+// saves backend image as backend.tar in current directory
+
+# Save = Make a single file with all toys
+docker save -o billing-app.tar billing-backend billing-frontend mysql:8.0
+// saves all 
+
+
+# From the ROOT folder (where docker-compose.yml is)
+docker compose build
+
+# 2. Stop everything
+docker compose down
+
+# 4. Start with new port (# -d means "detached" (runs in background))
+docker compose up -d
+
+# 5. Check
+docker compose ps   or docker ps
+

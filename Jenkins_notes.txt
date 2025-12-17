@@ -1,0 +1,105 @@
+1️⃣ What is Jenkins (in YOUR project terms)
+
+Jenkins = Automation server
+
+For your billing app, Jenkins will:
+
+✔ Pull latest code from Git
+✔ Build Spring Boot (Maven)
+✔ Build React (npm)
+✔ Create Docker images
+✔ Run docker-compose
+✔ Restart containers automatically
+
+👉 Instead of you manually running:
+git pull
+mvn clean package
+npm run build
+docker-compose down
+docker-compose up --build
+
+
+Before Jenkins (manual)
+You
+ ├── git pull
+ ├── mvn clean package
+ ├── npm run build
+ ├── docker-compose up
+
+After Jenkins (automated)
+Git push
+   ↓
+Jenkins
+   ↓
+Build + Test
+   ↓
+Docker Images
+   ↓
+docker-compose deploy
+
+
+Realistic Jenkins Flow for Your Billing App
+Stage 1: Checkout code
+Stage 2: Build Spring Boot backend
+Stage 3: Build React frontend
+Stage 4: Build Docker images
+Stage 5: Deploy via docker-compose
+
+Jenkins Installation (Ubuntu 22)
+Option A (Best for learning): Jenkins in Docker ✅
+docker run -d \
+  --name jenkins \
+  -p 8080:8080 \
+  -p 50000:50000 \
+  -v jenkins_home:/var/jenkins_home \
+  -v /var/run/docker.sock:/var/run/docker.sock \
+  jenkins/jenkins:lts
+
+
+Open:
+
+http://localhost:8080
+
+
+👉 This allows Jenkins to run Docker commands on your host.
+
+----------------------------------------------- INSTALLATION ---------------------------------------------------------
+HOST (your Ubuntu) : CONTAINER (Jenkins)
+9001               → 8080
+
+amit_pandey@AmitPandey-ThinkBook-16-G7-ARP:/media/amit_pandey/D Drive/Programs/Billing-software-docker$ 
+
+docker run -d \
+  --name jenkins \
+  -p 9001:8080 \
+  -p 50000:50000 \
+  -v jenkins_home:/var/jenkins_home \
+  -v /var/run/docker.sock:/var/run/docker.sock \
+  jenkins/jenkins:lts
+Unable to find image 'jenkins/jenkins:lts' locally
+lts: Pulling from jenkins/jenkins
+d2519f76d4c6: Pull complete 
+687044b042c5: Pull complete 
+501deb283b89: Pull complete 
+2f1ecb09fa36: Pull complete 
+68cdef480092: Pull complete 
+d7dd2e630238: Pull complete 
+a9230f7c9c31: Pull complete 
+e0e73f34dee9: Pull complete 
+986be6969b0a: Pull complete 
+3fb70446889e: Pull complete 
+13cc39f8244a: Pull complete 
+5687d4df0728: Pull complete 
+8d32d2b88383: Download complete 
+Digest: sha256:1e407df1a9bcb122cc4d71d4ce44d2e3b2be31af004c157453a939f13ae691c7
+Status: Downloaded newer image for jenkins/jenkins:lts
+9e6871b8f91abf3447429e37cf947d0e8f586d9b2984beff81e6def9683b7d52
+
+==================================
+
+docker exec -it 9e6871b8f91a bash
+jenkins@9e6871b8f91a:/$ cd /var/jenkins_home/secrets
+
+jenkins@9e6871b8f91a:~/secrets$ cat initialAdminPassword 
+7c8a5e7dc5744f8d8c06a932ef95d48c
+

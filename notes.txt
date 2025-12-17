@@ -36,3 +36,34 @@ Query OK, 1 row affected (0.03 sec)
 -----------------------------------------------------
 
 tree -L 2
+
+
+DOCKER ======================================
+
+docker images
+                                                                                                                                                   i Info →   U  In Use
+IMAGE                                     ID             DISK USAGE   CONTENT SIZE   EXTRA
+billing-software-docker-backend:latest    b508e7d65855        420MB          138MB        
+billing-software-docker-frontend:latest   aa082b12c7c3       87.5MB         25.9MB        
+hello-world:latest                        d4aaab6242e0       25.9kB         9.52kB        
+mysql:8.0                                 0275a35e79c6       1.08GB          247MB        
+
+docker save b508e7d65855 -o backend.tar     // saves backend image as backend.tar in current directory
+
+
+
+
+# From the ROOT folder (where docker-compose.yml is)
+docker compose build
+
+# 2. Stop everything
+docker compose down
+
+# 4. Start with new port (# -d means "detached" (runs in background))
+docker compose up -d
+
+# 5. Check
+docker compose ps   or docker ps
+
+WGET command
+
