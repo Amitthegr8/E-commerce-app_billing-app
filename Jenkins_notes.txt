@@ -146,3 +146,13 @@ PATH issues are extremely common in CI
 
 SCM was never the problem after workspace cleanup
 
+=============================================================
+
+Your FINAL Architecture (Mentally lock this in)
+Jenkins (Docker)
+ ├── builds backend image
+ ├── builds frontend image
+ ├── creates docker network
+ ├── runs mysql container (billing-mysql)
+ ├── runs backend container (uses DB_HOST)
+ └── runs frontend container
