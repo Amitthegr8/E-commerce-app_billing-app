@@ -95,11 +95,46 @@ Digest: sha256:1e407df1a9bcb122cc4d71d4ce44d2e3b2be31af004c157453a939f13ae691c7
 Status: Downloaded newer image for jenkins/jenkins:lts
 9e6871b8f91abf3447429e37cf947d0e8f586d9b2984beff81e6def9683b7d52
 
-==================================
+================================== RUN JENKINS WITH DOCKER =======================================
 
 docker exec -it 9e6871b8f91a bash
 jenkins@9e6871b8f91a:/$ cd /var/jenkins_home/secrets
 
 jenkins@9e6871b8f91a:~/secrets$ cat initialAdminPassword 
 7c8a5e7dc5744f8d8c06a932ef95d48c
+
+“SCM stands for Source Code Management. Jenkins integrates with Git-based SCM systems to fetch code and Jenkinsfile directly from the repository, enabling pipeline-as-code.”
+
+Docker Needs to be installed inside JENKINS Container.
+
+We need to:
+
+Install Docker CLI inside Jenkins container
+
+Allow Jenkins user to use Docker
+
+Restart Jenkins
+
+docker stop jenkins
+docker rm jenkins
+
+docker run -d \
+  --name jenkins \
+  -p 9001:8080 \
+  -p 50000:50000 \
+  -v jenkins_home:/var/jenkins_home \
+  -v /var/run/docker.sock:/var/run/docker.sock \
+  --group-add $(getent group docker | cut -d: -f3) \
+  jenkins/jenkins:lts
+
+// enter as root user
+docker exec -it -u root jenkins bash
+apt-get update
+apt-get install -y docker.io
+exit
+
+docker restart jenkins
+
+
+
 
