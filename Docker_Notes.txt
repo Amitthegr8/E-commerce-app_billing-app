@@ -31,3 +31,12 @@ docker compose up -d
 # 5. Check
 docker compose ps   or docker ps
 
+
+======================== docker compose uses many commands internally advantage ==============================
+
+1. docker network create
+2. docker volume create
+3. docker build
+4. docker run
+
+docker compose up -d   // handles all 4 commands

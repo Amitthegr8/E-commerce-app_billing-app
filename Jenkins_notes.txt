@@ -138,3 +138,11 @@ docker restart jenkins
 
 
 
+Jenkins runs as jenkins user, not root
+
+Root success ≠ Jenkins success
+
+PATH issues are extremely common in CI
+
+SCM was never the problem after workspace cleanup
+
